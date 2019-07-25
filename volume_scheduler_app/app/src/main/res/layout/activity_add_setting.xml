@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSettingActivity">
+
+    <TextView
+        android:text="@string/add_setting_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingTimeTitleTextView" app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+    <TextView
+        android:text="8:00"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingTimeTextView" android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/settingTimeTitleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="32dp" android:textSize="30sp"/>
+    <CheckBox
+        android:text="@string/sunday"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sundayCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/dayOfTheWeakTitleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="32dp" android:layout_marginTop="16dp"/>
+    <CheckBox
+        android:text="@string/monday"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mondayCheckBox" app:layout_constraintTop_toBottomOf="@+id/sundayCheckBox"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp" android:layout_marginTop="8dp"/>
+    <CheckBox
+        android:text="@string/tuesday"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tuesdayCheckBox" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/mondayCheckBox"/>
+    <CheckBox
+        android:text="@string/wednesday"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wednesdayCheckBok" android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tuesdayCheckBox" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="32dp"/>
+    <CheckBox
+        android:text="@string/thursday"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/thursdayCheckBox" android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/wednesdayCheckBok" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="32dp"/>
+    <CheckBox
+        android:text="@string/friday"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fridayCheckBox" android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/thursdayCheckBox" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="32dp"/>
+    <CheckBox
+        android:text="@string/saturday"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saturdayCheckBox" app:layout_constraintTop_toBottomOf="@+id/fridayCheckBox"
+        android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"/>
+    <TextView
+        android:text="@string/add_setting_day_of_the_week_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dayOfTheWeakTitleTextView" app:layout_constraintTop_toBottomOf="@+id/settingTimeTextView"
+        android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"/>
+    <Button
+        android:text="@string/add_setting_setting_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addSettingButton" android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/saturdayCheckBox" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+        style="@style/Widget.AppCompat.Button.Colored" android:background="@color/colorPrimary"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

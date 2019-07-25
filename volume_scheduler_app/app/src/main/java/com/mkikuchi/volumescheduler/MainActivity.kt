@@ -1,5 +1,6 @@
 package com.mkikuchi.volumescheduler
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        title = ""
 
         val adapter = GroupAdapter<ViewHolder>()
         val section = Section()
@@ -42,7 +44,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId) {
-            R.id.addSetting -> Log.d("test", "taped")
+            R.id.addSetting ->
+                startActivity(Intent(this, AddSettingActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
