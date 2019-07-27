@@ -32,14 +32,9 @@ class MainActivity : AppCompatActivity() {
         val adapter = GroupAdapter<ViewHolder>()
         settingItemRecyclerView.adapter = adapter
 
-        viewModel.settingItemList.observe(this, Observer {
+        viewModel.settingItemSection.observe(this, Observer {
             adapter.clear()
-
-            val section = Section()
-            for (settingItemEntity in it) {
-                section.add(SettingItem(settingItemEntity.time.toString(), "月"))
-            }
-            adapter.add(section)
+            adapter.add(it)
         })
 
 
