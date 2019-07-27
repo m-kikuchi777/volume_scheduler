@@ -9,8 +9,8 @@ import java.util.*
  */
 @Entity(tableName = "setting_item")
 data class SettingItemEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    val time: Long,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val time: String,
     val sunday: Boolean,
     val monday: Boolean,
     val tuesday: Boolean,
