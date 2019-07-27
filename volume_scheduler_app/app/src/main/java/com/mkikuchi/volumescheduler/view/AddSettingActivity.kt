@@ -1,7 +1,8 @@
-package com.mkikuchi.volumescheduler
+package com.mkikuchi.volumescheduler.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mkikuchi.volumescheduler.R
 import kotlinx.android.synthetic.main.activity_add_setting.*
 
 class AddSettingActivity : AppCompatActivity() {

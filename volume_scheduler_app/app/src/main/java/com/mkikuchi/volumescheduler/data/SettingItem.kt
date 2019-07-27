@@ -1,5 +1,6 @@
-package com.mkikuchi.volumescheduler
+package com.mkikuchi.volumescheduler.data
 
+import com.mkikuchi.volumescheduler.R
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.item_layout.*

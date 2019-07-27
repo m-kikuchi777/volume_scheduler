@@ -1,4 +1,4 @@
-package com.mkikuchi.volumescheduler
+package com.mkikuchi.volumescheduler.utils
 
 import android.content.Context
 import android.media.AudioManager

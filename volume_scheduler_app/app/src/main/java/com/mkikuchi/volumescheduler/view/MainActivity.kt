@@ -1,12 +1,17 @@
-package com.mkikuchi.volumescheduler
+package com.mkikuchi.volumescheduler.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.work.*
+import com.mkikuchi.volumescheduler.R
+import com.mkikuchi.volumescheduler.data.SettingItem
+import com.mkikuchi.volumescheduler.utils.VolumeController
+import com.mkikuchi.volumescheduler.viewmodel.SettingItemListViewModel
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.ViewHolder
@@ -15,17 +20,28 @@ import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var viewModel: SettingItemListViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         title = ""
 
-        val adapter = GroupAdapter<ViewHolder>()
-        val section = Section()
-        section.add(SettingItem("8:00", "月火水"))
-        adapter.add(section)
+        viewModel = ViewModelProviders.of(this).get(SettingItemListViewModel::class.java)
 
+        val adapter = GroupAdapter<ViewHolder>()
         settingItemRecyclerView.adapter = adapter
+
+        viewModel.settingItemList.observe(this, Observer {
+            adapter.clear()
+
+            val section = Section()
+            for (settingItemEntity in it) {
+                section.add(SettingItem(settingItemEntity.time.toString(), "月"))
+            }
+            adapter.add(section)
+        })
+
 
         val volumeController = PeriodicWorkRequest
             .Builder(
