@@ -1,6 +1,6 @@
 package com.mkikuchi.volumescheduler.view
 
-import android.content.DialogInterface
+import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.mkikuchi.volumescheduler.R
 import com.mkikuchi.volumescheduler.viewmodel.AddSettingViewModel
 import kotlinx.android.synthetic.main.activity_add_setting.*
-import kotlinx.android.synthetic.main.item_layout.*
 
 class AddSettingActivity : AppCompatActivity() {
 
@@ -20,6 +19,24 @@ class AddSettingActivity : AppCompatActivity() {
         title = getString(R.string.add_setting_title)
 
         viewModel = ViewModelProviders.of(this).get(AddSettingViewModel::class.java)
+
+        var hour = 8
+        var minute = 0
+        settingTimeTextView.setOnClickListener {
+            // 時刻を設定するダイアログを表示する。
+            TimePickerDialog(
+                this,
+                TimePickerDialog.OnTimeSetListener { _, h, m ->
+                    // 設定された時刻をテキストビューにセットする。
+                    settingTimeTextView.text = String.format("%d:%02d", h, m)
+                    hour = h
+                    minute = m
+                },
+                hour,
+                minute,
+                true
+            ).show()
+        }
 
         addSettingButton.setOnClickListener {
             val errorMessage = viewModel.validate(
@@ -41,7 +58,7 @@ class AddSettingActivity : AppCompatActivity() {
             } else {
                 AlertDialog.Builder(this)
                     .setMessage("設定しました。")
-                    .setPositiveButton("OK") { dialog, which ->
+                    .setPositiveButton("OK") { _, _ ->
                         finish()
                     }
                     .show()
