@@ -12,4 +12,6 @@
     <string name="add_setting_time_title">設定したい時刻</string>
     <string name="add_setting_day_of_the_week_title">設定する曜日</string>
     <string name="add_setting_setting_title">設定</string>
+
+    <string name="delete_confirm_message">削除しますか？</string>
 </resources>

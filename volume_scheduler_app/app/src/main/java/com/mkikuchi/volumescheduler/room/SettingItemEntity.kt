@@ -20,33 +20,32 @@ data class SettingItemEntity(
     val friday: Boolean,
     val saturday: Boolean
 ) {
-    fun toConvertSettingItem(): SettingItem {
-        var dayOfWeek = ""
-        if (sunday) {
-            dayOfWeek += "日、"
-        }
-        if (monday) {
-            dayOfWeek += "月、"
-        }
-        if (tuesday) {
-            dayOfWeek += "火、"
-        }
-        if (wednesday) {
-            dayOfWeek += "水、"
-        }
-        if (thursday) {
-            dayOfWeek += "木、"
-        }
-        if (friday) {
-            dayOfWeek += "金、"
-        }
-        if (saturday) {
-            dayOfWeek += "土、"
-        }
+    val dayOfWeek: String
+        get() {
+            var dayOfWeek = ""
+            if (sunday) {
+                dayOfWeek += "日、"
+            }
+            if (monday) {
+                dayOfWeek += "月、"
+            }
+            if (tuesday) {
+                dayOfWeek += "火、"
+            }
+            if (wednesday) {
+                dayOfWeek += "水、"
+            }
+            if (thursday) {
+                dayOfWeek += "木、"
+            }
+            if (friday) {
+                dayOfWeek += "金、"
+            }
+            if (saturday) {
+                dayOfWeek += "土、"
+            }
 
-        // 最後についている"、"を取り除く
-        dayOfWeek = dayOfWeek.dropLast(1)
-
-        return SettingItem(time, dayOfWeek)
-    }
+            // 最後についている"、"を取り除く
+            return dayOfWeek.dropLast(1)
+        }
 }
