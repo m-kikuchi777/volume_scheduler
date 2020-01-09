@@ -40,7 +40,6 @@ class AddSettingActivity : AppCompatActivity() {
 
         addSettingButton.setOnClickListener {
             val errorMessage = viewModel.validate(
-                settingTimeTextView.text.toString(),
                 isSunday = sundayCheckBox.isChecked,
                 isMonday = mondayCheckBox.isChecked,
                 isTuesday = tuesdayCheckBox.isChecked,
@@ -59,6 +58,16 @@ class AddSettingActivity : AppCompatActivity() {
                 AlertDialog.Builder(this)
                     .setMessage("設定しました。")
                     .setPositiveButton("OK") { _, _ ->
+                        // 保存する。
+                        viewModel.insert(
+                            settingTimeTextView.text.toString(),
+                            isSunday = sundayCheckBox.isChecked,
+                            isMonday = mondayCheckBox.isChecked,
+                            isTuesday = tuesdayCheckBox.isChecked,
+                            isWednesday = wednesdayCheckBok.isChecked,
+                            isThursday = thursdayCheckBox.isChecked,
+                            isFriday = fridayCheckBox.isChecked,
+                            isSaturday = saturdayCheckBox.isChecked)
                         finish()
                     }
                     .show()

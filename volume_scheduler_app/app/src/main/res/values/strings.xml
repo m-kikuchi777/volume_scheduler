@@ -1,4 +1,6 @@
 <resources>
+    <string name="channel_name">VolumeScheduler</string>
+
     <string name="app_name">Volume scheduler</string>
     <string name="sunday">日</string>
     <string name="monday">月</string>
@@ -14,4 +16,7 @@
     <string name="add_setting_setting_title">設定</string>
 
     <string name="delete_confirm_message">削除しますか？</string>
+    <string name="set_item_message">設定しました。</string>
+
+    <string name="notification_text">音量をゼロにしました！</string>
 </resources>

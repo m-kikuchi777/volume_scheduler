@@ -25,7 +25,6 @@ class AddSettingViewModel(application: Application) : AndroidViewModel(applicati
      * 入力をチェックする。
      */
     fun validate(
-        time: String,
         isSunday: Boolean,
         isMonday: Boolean,
         isTuesday: Boolean,
@@ -35,7 +34,6 @@ class AddSettingViewModel(application: Application) : AndroidViewModel(applicati
         isSaturday: Boolean) : String? {
 
         return if (isSunday || isMonday || isTuesday || isWednesday || isThursday || isFriday || isSaturday ) {
-            insert(time, isSunday, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday)
             null
         } else {
             return "曜日は一つ以上選択してください。"
@@ -45,7 +43,7 @@ class AddSettingViewModel(application: Application) : AndroidViewModel(applicati
     /**
      * アイテムを追加する。
      */
-    private fun insert(
+    fun insert(
         time: String,
         isSunday: Boolean,
         isMonday: Boolean,

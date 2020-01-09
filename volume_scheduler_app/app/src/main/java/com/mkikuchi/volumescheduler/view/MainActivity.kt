@@ -4,10 +4,8 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SimpleAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -16,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.work.*
 import com.mkikuchi.volumescheduler.R
 import com.mkikuchi.volumescheduler.data.SettingItem
-import com.mkikuchi.volumescheduler.data.SwipeToDeleteCallback
-import com.mkikuchi.volumescheduler.room.SettingItemEntity
 import com.mkikuchi.volumescheduler.utils.VolumeController
 import com.mkikuchi.volumescheduler.viewmodel.SettingItemListViewModel
 import com.xwray.groupie.GroupAdapter
@@ -72,15 +68,6 @@ class MainActivity : AppCompatActivity() {
             adapter.clear()
             adapter.add(it)
         })
-
-        val volumeController = PeriodicWorkRequest
-            .Builder(
-                VolumeController::class.java,
-                15, TimeUnit.MINUTES)
-            .setInitialDelay(10, TimeUnit.SECONDS)
-            .build()
-        WorkManager.getInstance(this).enqueue(volumeController)
-        WorkManager.getInstance(this).cancelAllWork()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

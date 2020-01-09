@@ -1,4 +1,4 @@
-package com.mkikuchi.volumescheduler.data
+package com.mkikuchi.volumescheduler.view
 
 import android.content.Context
 import android.graphics.Canvas
